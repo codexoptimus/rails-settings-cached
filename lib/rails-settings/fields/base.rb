@@ -52,7 +52,8 @@ module RailsSettings
 
       def table_exists?
         parent.table_exists?
-      rescue StandardError
+      rescue StandardError => e
+        puts "WARNING: table_exists? error: #{e.inspect} #{e.backtrace}"
         false
       end
 
